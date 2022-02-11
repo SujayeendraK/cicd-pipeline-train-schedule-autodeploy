@@ -52,7 +52,7 @@ spec:
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: train-schedule-deployment-HPA
+  name: train-schedule-deployment-hpa
   namespace: default
 spec: 
   scaleTargetRef:
