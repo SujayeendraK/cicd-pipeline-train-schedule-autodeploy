@@ -46,3 +46,20 @@ spec:
         resources:
           requests:
             cpu: 200m
+
+---
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: train-schedule-deployment-hpa
+  namespace: default
+spec: 
+  scaleTargetRef:
+    apiversion: apps/v1
+    kind: Deployment
+    name: train-schedule-deployment
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 75
+  
